@@ -4,9 +4,6 @@ C=`tput setaf 6`
 Y=`tput setaf 3`
 Q=`tput sgr0`
 
-#时间
-imageNewTag=`date +%Y%m%d-%H%M%S`
-
 #内网镜像仓库地址
 #registryAddr="registry.cn-shanghai.aliyuncs.com/lihaozhy/docker"
 #docker login $registryAddr
@@ -33,8 +30,6 @@ if [ "$choice" = "Yes" ]; then
 
 # 创建文件夹
   mkdir images
-  rm -rf images/*
-  rm -rf images.tar.gz
 
   for variable in ${list[@]}
   do
@@ -97,7 +92,6 @@ elif [ "$choice" = "No" ]; then
 else
     echo "输入无效，请输入 Yes 或 No。"
 fi
-
 
 read -p "${C}是否清理本地镜像(Y/N,默认N)?:${Q}" is_clean
 #清理镜像
